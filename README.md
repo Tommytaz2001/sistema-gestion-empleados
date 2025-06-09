@@ -1,112 +1,163 @@
+<<<<<<< HEAD
 # Sistema de Gestión de Empleados y Sucursales
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/Tommytaz2001/sistema-gestion-empleados)
 ![GitHub last commit](https://img.shields.io/github/last-commit/Tommytaz2001/sistema-gestion-empleados)
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
 
 Sistema web completo para la gestión de empleados y sucursales, desarrollado con React para el frontend y Node.js con Express para el backend.
 
-## 🚀 Características
+## ✨ Estado del Proyecto
+Actualmente en desarrollo. ¡Nuevas características y mejoras se añaden continuamente!
 
-- **Gestión de Empleados**: Registro, edición y eliminación de empleados.
-- **Gestión de Sucursales**: Administración de diferentes sucursales de la empresa.
-- **Asignaciones**: Asignación de empleados a diferentes sucursales.
-- **Dashboard**: Panel de control con información relevante.
-- **Interfaz Responsiva**: Diseño adaptativo para diferentes dispositivos.
+## 📸 Vistazo (Próximamente)
+*(Aquí puedes añadir capturas de pantalla o un GIF demostrando la aplicación en acción)*
+
+## 🚀 Características Principales
+- **Gestión de Empleados**: CRUD completo para empleados.
+- **Gestión de Sucursales**: Administración de las diferentes sedes de la empresa.
+- **Asignaciones**: Vinculación de empleados a sucursales específicas.
+- **Dashboard Interactivo**: Panel de control con visualizaciones y métricas clave.
+- **Interfaz Moderna y Responsiva**: Experiencia de usuario fluida en todos los dispositivos.
 
 ## 🛠️ Tecnologías Utilizadas
 
 ### Frontend
-- React 19
-- Material-UI (MUI) v7
-- React Router DOM v7
-- Axios para peticiones HTTP
+- **React 19**: Para construir la interfaz de usuario.
+- **Material-UI (MUI) v7**: Componentes UI estilizados y personalizables.
+- **React Router DOM v7**: Para la navegación y enrutamiento en la aplicación.
+- **Axios**: Cliente HTTP para realizar peticiones a la API.
+- **Web Vitals**: Para medir el rendimiento de la aplicación.
 
 ### Backend
-- Node.js
-- Express.js
-- PostgreSQL
-- CORS para manejo de peticiones cruzadas
-- dotenv para variables de entorno
+- **Node.js**: Entorno de ejecución para JavaScript del lado del servidor.
+- **Express.js**: Framework web para construir la API RESTful.
+- **PostgreSQL**: Sistema de gestión de bases de datos relacional.
+- **pg (node-postgres)**: Cliente PostgreSQL para Node.js.
+- **CORS**: Para habilitar peticiones desde diferentes orígenes.
+- **dotenv**: Para gestionar variables de entorno.
 
-## 📦 Instalación
+## 📋 Prerrequisitos
+Antes de comenzar, asegúrate de tener instalado lo siguiente:
+- [Node.js](https://nodejs.org/) (versión 16.x o superior recomendada)
+- npm (usualmente viene con Node.js) o [Yarn](https://yarnpkg.com/)
+- [PostgreSQL](https://www.postgresql.org/download/) (Base de datos)
+- [Git](https://git-scm.com/) (Control de versiones)
 
-Sigue estos pasos para configurar el proyecto localmente:
+## 📦 Instalación y Configuración
 
-1. **Clonar el repositorio**
-   ```bash
-   git clone https://github.com/Tommytaz2001/sistema-gestion-empleados.git
-   cd sistema-gestion-empleados
-   ```
+Sigue estos pasos para configurar y ejecutar el proyecto en tu entorno local:
 
-2. **Configurar el Backend**
-   ```bash
-   cd backend
-   npm install
-   cp .env.example .env
-   # Configurar las variables de entorno en .env
-   npm start
-   ```
+1.  **Clonar el Repositorio**
+    ```bash
+    git clone https://github.com/Tommytaz2001/sistema-gestion-empleados.git
+    cd sistema-gestion-empleados
+    ```
 
-3. **Configurar el Frontend**
-   ```bash
-   cd ../frontend
-   npm install
-   cp .env.example .env
-   # Configurar las variables de entorno en .env
-   npm start
-   ```
+2.  **Configurar el Backend**
+    ```bash
+    cd backend
+    npm install
+    ```
+    Crea un archivo `.env` en la raíz de la carpeta `backend` (puedes copiar `backend/.env.example` si existe, o crearlo desde cero) con las siguientes variables:
+    ```env
+    PORT=5000 # O el puerto que prefieras para el backend
+    DATABASE_URL=postgresql://USUARIO:CONTRASEÑA@HOST:PUERTO/NOMBRE_BASE_DATOS
+    # Ejemplo: DATABASE_URL=postgresql://postgres:admin@localhost:5432/gestion_empleados
+    ```
+    Luego, inicia el servidor backend:
+    ```bash
+    npm start
+    ```
+    O para desarrollo con recarga automática:
+    ```bash
+    npm run dev
+    ```
 
-4. **Configurar la base de datos**
-   - Crear una base de datos PostgreSQL
-   - Ejecutar los scripts SQL necesarios (ver carpeta `backend/database`)
+3.  **Configurar el Frontend**
+    ```bash
+    cd ../frontend # Asegúrate de estar en la raíz del proyecto antes de entrar a frontend
+    npm install
+    ```
+    Crea un archivo `.env` en la raíz de la carpeta `frontend` (puedes copiar `frontend/.env.example` si existe, o crearlo desde cero) con la siguiente variable:
+    ```env
+    REACT_APP_API_URL=http://localhost:5000 # La URL donde se ejecuta tu backend
+    ```
+    Luego, inicia la aplicación frontend:
+    ```bash
+    npm start
+    ```
+
+4.  **Configurar la Base de Datos PostgreSQL**
+    - Asegúrate de que tu servidor PostgreSQL esté en ejecución.
+    - Crea una base de datos (ej. `gestion_empleados`).
+    - Conéctate a tu base de datos y ejecuta los scripts SQL necesarios para crear las tablas y estructuras. Estos scripts se encuentran generalmente en una carpeta como `backend/database` o `backend/sql`. (Ej. `psql -U TU_USUARIO -d NOMBRE_BASE_DATOS -a -f backend/database/schema.sql`)
 
 ## 🚦 Estructura del Proyecto
-
 ```
 sistema-gestion-empleados/
-├── backend/               # Código del servidor
-│   ├── config/           # Configuraciones
-│   ├── controllers/      # Controladores
-│   ├── models/           # Modelos de datos
-│   ├── routes/           # Rutas de la API
-│   ├── server.js         # Punto de entrada del servidor
-│   └── package.json
+├── backend/                # Código del servidor (Node.js/Express)
+│   ├── node_modules/
+│   ├── config/             # Configuraciones (ej. conexión a BD)
+│   ├── controllers/        # Lógica de negocio para las rutas
+│   ├── models/             # Modelos de datos (ej. para interactuar con PostgreSQL)
+│   ├── routes/             # Definición de las rutas de la API
+│   ├── server.js           # Punto de entrada del servidor backend
+│   ├── package.json
+│   └── .env.example        # Ejemplo de variables de entorno para el backend
 │
-└── frontend/            # Aplicación React
-    ├── public/          # Archivos estáticos
+└── frontend/               # Aplicación cliente (React)
+    ├── node_modules/
+    ├── public/             # Archivos estáticos (index.html, favicon, etc.)
     └── src/
-        ├── components/  # Componentes reutilizables
-        ├── pages/       # Componentes de página
-        ├── App.js       # Componente principal
-        └── index.js     # Punto de entrada de React
+        ├── assets/         # Imágenes, fuentes, etc.
+        ├── components/     # Componentes React reutilizables
+        ├── contexts/       # Context API para gestión de estado global (opcional)
+        ├── hooks/          # Hooks personalizados (opcional)
+        ├── pages/          # Componentes de página (vistas principales)
+        ├── services/       # Lógica para interactuar con la API (ej. usando Axios)
+        ├── styles/         # Estilos globales, temas MUI
+        ├── utils/          # Funciones de utilidad
+        ├── App.js          # Componente raíz de la aplicación
+        ├── index.js        # Punto de entrada de la aplicación React
+        └── reportWebVitals.js
+    ├── package.json
+    └── .env.example        # Ejemplo de variables de entorno para el frontend
+├── .gitignore              # Archivos y carpetas a ignorar por Git
+└── README.md               # Este archivo
 ```
 
-## 📝 Uso
+## 📝 Uso de la Aplicación
+Una vez que tanto el backend como el frontend estén en ejecución:
+1.  Abre tu navegador web.
+2.  Navega a `http://localhost:3000` (o el puerto donde se esté ejecutando tu frontend React).
 
-1. Inicia el servidor backend:
-   ```bash
-   cd backend
-   npm start
-   ```
+## 📄 API Endpoints (Ejemplo)
+El backend expone una API RESTful. Aquí algunos ejemplos de endpoints (consulta `backend/routes/` para la definición completa):
+- `GET /api/empleados`: Obtiene todos los empleados.
+- `POST /api/empleados`: Crea un nuevo empleado.
+- `GET /api/sucursales`: Obtiene todas las sucursales.
+*(Se recomienda generar documentación más detallada para la API, por ejemplo, usando Swagger/OpenAPI)*
 
-2. Inicia la aplicación frontend:
-   ```bash
-   cd frontend
-   npm start
-   ```
+## ☁️ Despliegue (Próximamente)
+*(Instrucciones o consideraciones para desplegar la aplicación en producción, ej. Vercel, Netlify para frontend; Heroku, AWS para backend)*
 
-3. Abre tu navegador en `http://localhost:3000`
-
-## 🤝 Contribución
-
-Las contribuciones son bienvenidas. Por favor, lee las [pautas de contribución](CONTRIBUTING.md) antes de enviar cambios.
+## 🤝 Contribuciones
+¡Las contribuciones son bienvenidas! Si deseas contribuir, por favor:
+1.  Haz un fork del repositorio.
+2.  Crea una nueva rama (`git checkout -b feature/nueva-caracteristica`).
+3.  Realiza tus cambios y haz commit (`git commit -am 'Añade nueva característica'`).
+4.  Sube tus cambios a la rama (`git push origin feature/nueva-caracteristica`).
+5.  Abre un Pull Request.
 
 ## 📄 Licencia
-
-Este proyecto está bajo la Licencia MIT. Consulta el archivo [LICENSE](LICENSE) para más información.
+Este proyecto está bajo la Licencia MIT.
 
 ## ✉️ Contacto
+Tommy Steeven Apolinario Sánchez - [Tommytaz2001](https://github.com/Tommytaz2001)
 
-Tommy Apolinario - [@tu_usuario](https://github.com/Tommytaz2001)
-
-Enlace del proyecto: [https://github.com/Tommytaz2001/sistema-gestion-empleados](https://github.com/Tommytaz2001/sistema-gestion-empleados)
+Enlace del Proyecto: [https://github.com/Tommytaz2001/sistema-gestion-empleados](https://github.com/Tommytaz2001/sistema-gestion-empleados)
+=======
+# sistema-gestion-empleados
+Sistema de gestión de empleados y sucursales con React y Node.js
+>>>>>>> 1845525969507f9ebf4501834f0a4cee813a3519
