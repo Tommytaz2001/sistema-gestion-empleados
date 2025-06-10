@@ -7,12 +7,6 @@
 
 Sistema web completo para la gestión de empleados y sucursales, desarrollado con React para el frontend y Node.js con Express para el backend.
 
-## ✨ Estado del Proyecto
-Actualmente en desarrollo. ¡Nuevas características y mejoras se añaden continuamente!
-
-## 📸 Vistazo (Próximamente)
-*(Aquí puedes añadir capturas de pantalla o un GIF demostrando la aplicación en acción)*
-
 ## 🚀 Características Principales
 - **Gestión de Empleados**: CRUD completo para empleados.
 - **Gestión de Sucursales**: Administración de las diferentes sedes de la empresa.
