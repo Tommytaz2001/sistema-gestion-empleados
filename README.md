@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # Sistema de Gestión de Empleados y Sucursales
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/Tommytaz2001/sistema-gestion-empleados)
